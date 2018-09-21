@@ -30,6 +30,6 @@ plugins: [
 
 ## Also
 
-You may want to change your output filename to `foo.blade.php`.
+The mutation will only be performed in `production` environments. You can still serve an HTML file as you normally would in development.
 
 This package is licensed under the MIT license. Do as you wish.
