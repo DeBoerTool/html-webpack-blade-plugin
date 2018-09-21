@@ -1,0 +1,16 @@
+{
+  "name": "html-webpack-blade-plugin",
+  "version": "0.0.1",
+  "description": "Transform your exported HTML into a ready-to-use Blade template",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeBoerTool/html-webpack-blade-plugin.git"
+  },
+  "author": "daniel.s.deboer@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DeBoerTool/html-webpack-blade-plugin/issues"
+  },
+  "homepage": "https://github.com/DeBoerTool/html-webpack-blade-plugin#readme"
+}
