@@ -12,7 +12,7 @@ module.exports = class HtmlBladePlugin {
       ['<!DOCTYPE html>', `@extends('${this.options.extends}')`],
       ['<html>', ''],
       ['</html>', ''],
-      ['<head>', `@section('${this.options.scripts})`],
+      ['<head>', `@section('${this.options.scripts}')`],
       ['</head>', '\r@endsection'],
       ['<body>', `@section('${this.options.content}')`],
       ['</body>', '\r@endsection'],
