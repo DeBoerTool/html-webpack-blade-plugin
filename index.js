@@ -1,5 +1,5 @@
 module.exports = class HtmlBladePlugin {
-  constructor (options = {}, isInProduction = false) {
+  constructor (options = {}, isInProduction = true) {
     const defaultOptions = {
       extends: 'html',
       scripts: 'scripts',
