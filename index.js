@@ -1,5 +1,5 @@
 module.exports = class HtmlBladePlugin {
-  constructor (options = {}) {
+  constructor (options = {}, isInProduction = false) {
     const defaultOptions = {
       extends: 'html',
       scripts: 'scripts',
@@ -7,6 +7,7 @@ module.exports = class HtmlBladePlugin {
     }
 
     this.options = Object.assign(defaultOptions, options)
+    this.isInProduction = isInProduction
 
     this.replaces = [
       ['<!DOCTYPE html>', `@extends('${this.options.extends}')`],
@@ -17,10 +18,6 @@ module.exports = class HtmlBladePlugin {
       ['<body>', `@section('${this.options.content}')`],
       ['</body>', '\r@endsection'],
     ]
-  }
-
-  isInProduction () {
-    return process.env.NODE_ENV === 'production'
   }
 
   mutate (data) {
