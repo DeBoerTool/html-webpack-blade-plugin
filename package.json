@@ -13,8 +13,8 @@
     "url": "https://github.com/DeBoerTool/html-webpack-blade-plugin/issues"
   },
   "homepage": "https://github.com/DeBoerTool/html-webpack-blade-plugin#readme",
-    "peerDependencies": {
-      "webpack": "^4.20.0",
-      "html-webpack-plugin": "^3.2.0"
-    }
+  "peerDependencies": {
+    "webpack": "^4.20.0",
+    "html-webpack-plugin": "^3.2.0"
+  }
 }
