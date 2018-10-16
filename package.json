@@ -1,6 +1,6 @@
 {
   "name": "html-webpack-blade-plugin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Transform your exported HTML into a ready-to-use Blade template",
   "main": "index.js",
   "repository": {
