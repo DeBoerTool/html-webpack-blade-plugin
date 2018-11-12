@@ -1,33 +1,32 @@
+const replaceTag = require('./src/replace-tag')
+
+const defaultOptions = {
+  extends: 'html',
+  scripts: 'scripts',
+  content: 'content',
+}
+
 module.exports = class HtmlBladePlugin {
   constructor (options = {}, isInProduction = true) {
-    const defaultOptions = {
-      extends: 'html',
-      scripts: 'scripts',
-      content: 'content',
-    }
-
     this.options = Object.assign(defaultOptions, options)
     this.isInProduction = isInProduction
 
     this.replaces = [
-      ['<!DOCTYPE html>', `@extends('${this.options.extends}')`],
-      ['<html>', ''],
-      ['</html>', ''],
-      ['<head>', `@section('${this.options.scripts}')`],
-      ['</head>', '\r@endsection'],
-      ['<body>', `@section('${this.options.content}')`],
-      ['</body>', '\r@endsection'],
+      ['!DOCTYPE html', `@extends('${this.options.extends}')`],
+      ['html', ''],
+      ['/html', ''],
+      ['head', `@section('${this.options.scripts}')`],
+      ['/head', '@endsection'],
+      ['body', `@section('${this.options.content}')`],
+      ['/body', '@endsection'],
     ]
   }
 
   mutate (data) {
-    let replaced = data
-
-    this.replaces.forEach((item) => {
-      replaced = replaced.replace(item[0], item[1])
-    })
-
-    return replaced
+    return this.replaces.reduce(
+      (data, replace) => replaceTag(replace[0], replace[1], data), 
+      data
+    )
   }
 
   apply (compiler) {
