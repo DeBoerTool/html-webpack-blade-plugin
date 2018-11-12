@@ -16,7 +16,7 @@ plugins: [
 ]
 ```
 
-By default `<html>` will be replaced with `@extends('html')`, `<head>` with `@section('scripts')` and `<body>` with `@section('content'). These defaults can be overridden:
+By default `<html>` will be replaced with `@extends('html')`, `<head>` with `@section('scripts')` and `<body>` with `@section('content')`. These defaults can be overridden:
 
 ```
 plugins: [
