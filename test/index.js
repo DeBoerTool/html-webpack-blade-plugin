@@ -6,7 +6,7 @@ const templates = require('./templates')
 
 describe('build-regex', () => {
   it('returns a new conditional regex', () => {
-    assert.strictEqual('/<test.*>/', regex('test').toString())
+    assert.strictEqual('/<test\\b[^>]*>/', regex('test').toString())
   })
 })
 
@@ -22,6 +22,16 @@ describe('replace-tags', function() {
     const replaced = replace('html', '@directive', '<html prop="whatever">')
 
     assert.strictEqual('@directive', replaced)
+  })
+
+  /*
+   * Although this plugin _can_ deal with minified code, this
+   * will almost certainly break Blade. Don't do this.
+   */
+  it('replaces non-isolated tags', () => {
+    const replaced = replace('html', '@directive', '<div><html prop="whatever"></div><p>')
+
+    assert.strictEqual('<div>@directive</div><p>', replaced)
   })
 })
 

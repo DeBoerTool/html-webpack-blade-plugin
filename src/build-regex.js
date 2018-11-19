@@ -1,1 +1,1 @@
-module.exports = tag => new RegExp(`<${tag}.*>`)
+module.exports = tag => new RegExp(`<${tag}\\b[^>]*>`)

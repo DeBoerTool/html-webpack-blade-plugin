@@ -28,8 +28,10 @@ plugins: [
 ]
 ```
 
-## Also
+## Production & Minification
 
 The mutation will only be performed in `production` environments. You can still serve an HTML file as you normally would in development.
+
+Since Blade is server-side template code (and will be processed by the Blade compiler), HMTL minification should be disabled. There's no benifit to minifying a template, and it may break Blade.
 
 This package is licensed under the MIT license. Do as you wish.

@@ -11,19 +11,23 @@ module.exports = class HtmlBladePlugin {
     this.options = Object.assign(defaultOptions, options)
     this.isInProduction = isInProduction
 
-    this.replaces = [
-      ['!DOCTYPE html', `@extends('${this.options.extends}')`],
+    /*
+     * Note the trailing spaces. They're there to hopefully not break
+     * Blade when the input is needlessly minified.
+     */ 
+    this.replacements = [
+      ['!DOCTYPE html', `@extends('${this.options.extends}') `],
       ['html', ''],
       ['/html', ''],
-      ['head', `@section('${this.options.scripts}')`],
-      ['/head', '@endsection'],
-      ['body', `@section('${this.options.content}')`],
-      ['/body', '@endsection'],
+      ['head', `@section('${this.options.scripts}') `],
+      ['/head', '@endsection '],
+      ['body', `@section('${this.options.content}') `],
+      ['/body', '@endsection '],
     ]
   }
 
   mutate (data) {
-    return this.replaces.reduce(
+    return this.replacements.reduce(
       (data, replace) => replaceTag(replace[0], replace[1], data), 
       data
     )
