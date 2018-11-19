@@ -12,15 +12,15 @@ const html = `
 `
 
 const blade = `
-@extends('html')
+@extends('html') 
 
-  @section('scripts')
+  @section('scripts') 
     <title>Some Title</title>
-  @endsection
+  @endsection 
 
-  @section('content')
+  @section('content') 
     <p>Here is the body.</p>
-  @endsection
+  @endsection 
 
 `
 
